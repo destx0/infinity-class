@@ -54,7 +54,7 @@ const ExamCard = (props) => {
 								className="w-full gap-4"
 								size="lg"
 								color={attempted ? "secondary" : "primary"}
-								variant="shadow"
+								variant="solid"
 							>
 								{attempted ? (
 									<>
