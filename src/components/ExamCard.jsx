@@ -8,7 +8,8 @@ import {
 	CardHeader,
 	CardTitle,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
+import { Button } from "@nextui-org/react";
 import { Badge } from "@/components/ui/badge";
 
 const ExamCard = (props) => {
@@ -40,7 +41,8 @@ const ExamCard = (props) => {
 						<Button
 							className="w-full gap-4"
 							size="lg"
-							variant={attempted ? "secondary" : "default"}
+							color={attempted ? "secondary" : "primary"}
+							variant="shadow"
 						>
 							{attempted ? (
 								<>
