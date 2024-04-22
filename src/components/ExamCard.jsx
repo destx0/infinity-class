@@ -37,7 +37,9 @@ const ExamCard = (props) => {
 				>
 					<Card className="pt-4">
 						<CardHeader className="gap-1 pb-0 pt-2 px-4 flex-col items-start">
-							<h2 className="font-bold text-large">{title}</h2>
+							<h2 className="font-bold  text-large uppercase">
+								{title}
+							</h2>
 							<div className="flex gap-3 justify-center ">
 								<Timer size="18" />
 								<small>15 mins</small>
