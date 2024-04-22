@@ -1,62 +1,73 @@
 import React from "react";
 import { Play, RotateCw, Timer } from "lucide-react";
+
 import {
 	Card,
-	CardContent,
-	CardDescription,
-	CardFooter,
 	CardHeader,
-	CardTitle,
-} from "@/components/ui/card";
+	CardBody,
+	CardFooter,
+	Divider,
+	Link,
+	Image,
+	Badge,
+} from "@nextui-org/react";
 // import { Button } from "@/components/ui/button";
 import { Button } from "@nextui-org/react";
-import { Badge } from "@/components/ui/badge";
+// import { Badge } from "@/components/ui/badge";
 
 const ExamCard = (props) => {
 	{
-		const { title, time, noOfQuestions, attempted } = props;
+		const { title, time, noOfQuestions, attempted, difficulty } = props;
+		let badgeColor;
+		if (difficulty === "easy") {
+			badgeColor = "success";
+		} else if (difficulty === "medium") {
+			badgeColor = "warning";
+		} else {
+			badgeColor = "danger";
+		}
 		return (
 			<>
-				<Card className="w-[950px]">
-					<CardHeader>
-						<CardTitle>{title}</CardTitle>
-						<div className="flex gap-2">
-							<>
-								<Timer className="w-1  h-1" />
-								{time} mins
-							</>
-						</div>
-					</CardHeader>
+				<Badge
+					content={difficulty}
+					shape="circle"
+					color={badgeColor}
+					variant="solid"
+					size="sm"
+				>
+					<Card className="pt-4">
+						<CardHeader className="gap-1 pb-0 pt-2 px-4 flex-col items-start">
+							<h2 className="font-bold text-large">{title}</h2>
+							<div className="flex gap-3 justify-center ">
+								<Timer size="18" />
+								<small>15 mins</small>
+							</div>
+							<p className="text-default-400">
+								{noOfQuestions} questions{" "}
+							</p>
+						</CardHeader>
 
-					<CardContent className="">
-						<Badge
-							variant="secondary"
-							className="object-right text-gray-200"
-						>
-							Difficulty: easy
-						</Badge>
-						<CardHeader>{noOfQuestions} Questions </CardHeader>
-					</CardContent>
-					<CardFooter>
-						<Button
-							className="w-full gap-4"
-							size="lg"
-							color={attempted ? "secondary" : "primary"}
-							variant="shadow"
-						>
-							{attempted ? (
-								<>
-									<RotateCw /> Reattempt
-								</>
-							) : (
-								<>
-									<Play />
-									Start Test
-								</>
-							)}
-						</Button>
-					</CardFooter>
-				</Card>
+						<CardFooter>
+							<Button
+								className="w-full gap-4"
+								size="lg"
+								color={attempted ? "secondary" : "primary"}
+								variant="shadow"
+							>
+								{attempted ? (
+									<>
+										<RotateCw /> Reattempt
+									</>
+								) : (
+									<>
+										<Play />
+										Start Test
+									</>
+								)}
+							</Button>
+						</CardFooter>
+					</Card>
+				</Badge>
 			</>
 		);
 	}
