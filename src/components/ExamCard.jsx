@@ -19,23 +19,24 @@ const ExamCard = (props) => {
 				<Card className="w-[950px]">
 					<CardHeader>
 						<CardTitle>{title}</CardTitle>
-						<CardDescription className="flex-row">
+						<div className="flex gap-2">
 							<>
-								<Timer />
+								<Timer className="w-1  h-1" />
 								{time} mins
 							</>
-						</CardDescription>
+						</div>
 					</CardHeader>
 
 					<CardContent className="">
-						<Badge variant="outline" className="object-right">
+						<Badge
+							variant="secondary"
+							className="object-right text-gray-200"
+						>
 							Difficulty: easy
 						</Badge>
-						<CardDescription>
-							{noOfQuestions} Questions{" "}
-						</CardDescription>
+						<CardHeader>{noOfQuestions} Questions </CardHeader>
 					</CardContent>
-					<CardFooter className="flex w-full  ">
+					<CardFooter>
 						<Button
 							className="w-full gap-4"
 							size="lg"
@@ -43,11 +44,11 @@ const ExamCard = (props) => {
 						>
 							{attempted ? (
 								<>
-									<Play /> Reattempt
+									<RotateCw /> Reattempt
 								</>
 							) : (
 								<>
-									<RotateCw />
+									<Play />
 									Start Test
 								</>
 							)}
