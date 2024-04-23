@@ -7,11 +7,13 @@ import {
 	Link,
 	Button,
 } from "@nextui-org/react";
+import { Infinity } from "lucide-react";
 
 export default function App() {
 	return (
 		<Navbar isBordered>
-			<NavbarBrand>
+			<NavbarBrand className="gap-2">
+				<Infinity />
 				<p className="font-bold text-inherit">Infy-quiz</p>
 			</NavbarBrand>
 			<NavbarContent className="hidden sm:flex gap-4" justify="center">
